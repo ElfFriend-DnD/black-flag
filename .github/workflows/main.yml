@@ -65,8 +65,14 @@ on:
 
 
 jobs:
+  checkout:
+    runs-on: ubuntu-latest
+    - name: Checkout code
+      uses: actions/checkout@v2
+
   # Use a Common Setup workflow
   setup_action:
+    needs: checkout
     runs-on: ubuntu-latest
     steps:
       - uses: ./.github/actions/setup
