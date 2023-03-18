@@ -65,31 +65,18 @@ on:
 
 
 jobs:
-  checkout:
+  release:
     runs-on: ubuntu-latest
-    steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-  # Use a Common Setup workflow
-  setup_action:
-    needs: checkout
-    runs-on: ubuntu-latest
-    steps:
-      - uses: ./.github/actions/setup
+      - name: Setup
+        uses: ./.github/actions/setup
 
-  build:
-    needs: setup_action
-    runs-on: ubuntu-latest
-    steps:
       # Run `build` command to generate any output files from source
       - name: Build
         run: npm run build
 
-  release:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
       # Extract version embedded in the tag.
       # This step expects the tag to be one of the following formats:
       #   - "v<major>.<minor>.<patch>" (e.g., "v1.2.3")

@@ -7,22 +7,14 @@ env:
   node_version: 18
 
 jobs:
-  checkout:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-  # Use a Common Setup workflow
-  setup_action:
-    needs: checkout
-    runs-on: ubuntu-latest
-    steps:
-      - uses: ./.github/actions/setup
+      - name: Setup
+        uses: ./.github/actions/setup
 
-  lint:
-    needs: setup_action
-    runs-on: ubuntu-latest
-    steps:
       - name: Lint
         run: npm run lint
