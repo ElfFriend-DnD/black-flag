@@ -31,6 +31,9 @@ export default class BlackFlagSheet extends DocumentSheet {
       this.object.system.description,
       {async: true, secrets: this.object.isOwner}
     );
+
+    // Add partials to all sheets
+    context.partials = CONFIG.SYSTEM.PARTIALS;
     return context;
   }
 

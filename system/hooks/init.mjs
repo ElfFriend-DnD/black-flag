@@ -72,6 +72,7 @@ function registerDocumentSheets() {
 /* -------------------------------------------- */
 
 function registerHandlebarsHelpers() {
+  loadTemplates(Object.values(CONFIG.SYSTEM.PARTIALS));
 
   // Convert a type and value to a localized label
   Handlebars.registerHelper("typeLabel", (type, value) => {

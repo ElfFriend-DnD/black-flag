@@ -1,0 +1,13 @@
+<header class="sheet-header flexrow">
+    <img class="profile" src="{{document.img}}" title="{{document.name}}" data-edit="img" />
+    <h1 class="title">
+        <input name="name" type="text" value="{{document.name}}" placeholder="Talent Name" />
+    </h1>
+    {{#if allowsColor}}
+    <div class="form-group">
+        <div class="form-fields">
+            {{colorPicker name="system.color" value=document.system.color}}
+        </div>
+    </div>
+    {{/if}}
+</header>

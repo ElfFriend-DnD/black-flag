@@ -205,6 +205,13 @@ const CHARACTER_BUILDER_MODES = {
 };
 
 /**
+ * System Handlebars Partials used across sheets
+ */
+const PARTIALS = {
+  itemHeader: `systems/${SYSTEM_ID}/system/templates/partials/item-header.hbs`
+};
+
+/**
  * Include all constant definitions within the SYSTEM global export
  * @type {Object}
  */
@@ -228,5 +235,6 @@ export const SYSTEM = {
   LINEAGE_DOCUMENTS: new Collection(),
   SAVE_TYPES,
   XP_TABLE,
-  CHARACTER_BUILDER_MODES
+  CHARACTER_BUILDER_MODES,
+  PARTIALS
 };
