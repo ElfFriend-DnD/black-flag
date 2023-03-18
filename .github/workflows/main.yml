@@ -67,11 +67,12 @@ on:
 jobs:
   # Use a Common Setup workflow
   setup_action:
+    runs-on: ubuntu-latest
     steps:
       - uses: ./.github/actions/setup
 
   build:
-    needs: call_setup
+    needs: setup_action
     runs-on: ubuntu-latest
     steps:
       # Run `build` command to generate any output files from source
