@@ -9,8 +9,8 @@ env:
 jobs:
   # Use a Common Setup workflow
   setup_action:
-  steps:
-    - uses: ./.github/actions/setup
+    steps:
+      - uses: ./.github/actions/setup
 
   lint:
     needs: call_setup
