@@ -66,8 +66,9 @@ on:
 
 jobs:
   # Use a Common Setup workflow
-  call_setup:
-    uses: ./.github/workflows/setup.yml
+  setup_action:
+    steps:
+      - uses: ./.github/actions/setup
 
   build:
     needs: call_setup
