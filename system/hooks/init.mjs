@@ -24,6 +24,9 @@ export function init() {
   registerDocumentSheets();
   registerDocumentClasses();
   registerHandlebarsHelpers();
+
+  // Preload all partials
+  loadTemplates(Object.values(CONFIG.SYSTEM.PARTIALS));
 }
 
 /* -------------------------------------------- */
@@ -72,8 +75,6 @@ function registerDocumentSheets() {
 /* -------------------------------------------- */
 
 function registerHandlebarsHelpers() {
-  loadTemplates(Object.values(CONFIG.SYSTEM.PARTIALS));
-
   // Convert a type and value to a localized label
   Handlebars.registerHelper("typeLabel", (type, value) => {
     return game.i18n.localize(CONFIG.SYSTEM[type][value]?.label);
